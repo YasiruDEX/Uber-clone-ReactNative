@@ -3,6 +3,8 @@ import React from 'react'
 import tw from "twrnc";
 import { Icon } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { selectOrigin } from '../slices/navSlice';
 
 const data = [
   {
@@ -21,6 +23,7 @@ const data = [
 
 const NavOptions = () => {
     const navigation = useNavigation();
+    const Origin = useSelector(selectOrigin);
 
 
   return (
@@ -30,12 +33,13 @@ const NavOptions = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => 
         <TouchableOpacity
+            disabled={!Origin}
             onPress={
                 () => navigation.navigate(item.screen)
             }
             style={tw`p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2 w-40`}
         >
-            <View>
+            <View style={tw`${!Origin && "opacity-20"}`}>
                 <Image  
                     style={{ width: 120, height: 120, resizeMode: 'contain'}}
                     source={{ uri: item.image }}

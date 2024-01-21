@@ -33,7 +33,9 @@ const HomeScreen = () => {
                 dispatch(setOrigin({
                     location: details.geometry.location,
                     description: data.description,
-                }));
+                }))
+
+                dispatch(setDestination(null))
             }}
             fetchDetails={true}
             returnKeyType={'search'}
@@ -45,7 +47,7 @@ const HomeScreen = () => {
             
             }}
             nearbyPlacesAPI='GooglePlacesSearch'
-            debounce={400}
+            debounce={800}
         />
         
         <NavOptions />
