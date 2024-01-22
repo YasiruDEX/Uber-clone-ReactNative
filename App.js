@@ -9,6 +9,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MapScreen from './screens/MapScreen';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'; 
 import { GOOGLE_MAPS_APIKEY } from '@env';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['Warning: ...']); //Hide warnings
+
+LogBox.ignoreAllLogs();//Hide all warning notifications on front-end
 
 export default function App() {
   const Stack = createStackNavigator();

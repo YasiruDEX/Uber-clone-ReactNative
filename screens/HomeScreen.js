@@ -9,7 +9,6 @@ import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFavourites from '../components/NavFavourites';
 
 const HomeScreen = () => {
-
     const dispatch = useDispatch();
 
   return (
